@@ -1,0 +1,26 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="view_pos_config_form_field_filter">
+    <field name="name">view.pos.config.form.mp</field>
+    <field name="model">pos.config</field>
+    <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+      <field name="type">form</field>
+      <field name="active" eval="True" />
+      <field name="arch" type="xml">
+            <div id="title" position="after">
+                <div class="row mt16 o_settings_container">
+                    <setting>
+                         <div class="content-group mt16" >
+                        <div class="row">
+                            <label for="field_to_filter" string="Campos a filtrar productos " class="col-lg-4 o_light_label" />
+                            <field name="field_to_filter" widget="many2many_tags"   />
+                        </div>
+                    </div>
+                    </setting>
+                </div>
+            </div>
+      </field>
+  </record>
+  </data>
+</odoo>

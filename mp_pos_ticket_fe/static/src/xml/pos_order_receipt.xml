@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="mp_pos_ticket_fe.order_receipt" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[@t-if='props.data.pos_qr_code']" position="replace">
+        <t t-if="props.data.Qr_code_fe">
+            <div t-if="props.data.Qr_code_fe" style="page-break-inside: avoid;">
+                <br />
+                <div class="pos-receipt-order-data-fe mb-2" style="text-align: center;font-size: 75%;">
+                    Escanee el código QR para consultar la factura.
+                </div>
+                <!-- <img id="posqrcode" t-att-src="props.data.Qr_code" class="pos-receipt-qrcode"/> -->
+                <img id="posqrcode" t-att-src="props.data.Qr_code_fe" class="pos-receipt-qrcode" style="width:115px;height:115px;"/>
+            </div>
+            <t t-if="props.data.invoice_info['cufe']">
+                <div class="pos-receipt-order-data-fe mb-2" style="text-align: center;word-wrap:break-word;font-size: 50%;">
+                    CUFE : <t t-esc="props.data.invoice_info['cufe']"/>
+                </div>
+            </t>      
+        </t>
+        <!-- En caso de que no sea factura electrónica deja por defecto el original -->
+        <t t-if="!props.data.Qr_code_fe">
+        <div t-if="props.data.pos_qr_code">
+                <br /><br />
+                <div class="pos-receipt-order-data mb-2">
+                    Scan me to request an invoice for your purchase.
+                </div>
+                <img id="posqrcode" t-att-src="props.data.pos_qr_code" class="pos-receipt-qrcode"/>
+            </div>
+        </t>
+        <div class="pos-receipt-contact">
+            <div t-if="props.data.cashier" class="cashier">                
+                <div>Served by <t t-esc="props.data.cashier" /></div>
+            </div>
+            <div class="fw-bolder" t-if="props.data.trackingNumber ">
+                <span class="fs-2" t-esc="props.data.trackingNumber" />
+            </div>         
+        </div> 
+             
+        </xpath>
+        <xpath expr="//div[@t-esc='props.data.name']" position="replace">            
+        </xpath>
+        <xpath expr="//div[@t-esc='props.data.date']" position="replace">            
+        </xpath>
+    </t>
+</templates>

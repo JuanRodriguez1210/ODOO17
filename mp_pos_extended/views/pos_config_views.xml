@@ -1,0 +1,44 @@
+<odoo>
+  <data>
+  
+  <!-- primary|extension Inherited .:Form:. view for "model" -->
+    <record model="ir.ui.view" id="view_pos_config_form">
+    <field name="name">view.pos.config.form.mp</field>
+    <field name="model">pos.config</field>
+    <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+      <field name="type">form</field>
+      <field name="active" eval="True" />
+      <field name="arch" type="xml">
+            <div id="title" position="after">
+                <div class="col-xs-12 col-lg-6 o_setting_box" id="limit_pos_uvt">
+                    <div class="o_setting_right_pane">
+                    <field name="value_uvt" 
+                    invisible="1"
+                     />
+                        <label for="value_limit_uvt_ticket" string="Limit UVT" />
+                        <div class="text-muted">
+                            Limite UVT
+                        </div>
+                        <div class="content-group">
+                            <div class="mt16">
+                                <field
+                                    name="qty_limit_uvt"
+                                    class="o_light_label"
+                                />
+                                <field
+                                    name="value_limit_uvt_ticket"
+                                    class="o_light_label"
+                                    readonly="1"
+                                    force_save="1"
+                                    
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+      </field>
+  </record>
+  
+  </data>
+</odoo>

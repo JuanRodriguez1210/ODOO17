@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- REEMPLAZA LOS CAMPOS QUE NO SE TRADUCEN POR DEFECTO EN EL POS-->
+<templates id="template" xml:space="preserve">
+    <t t-name="mp_pos_edit_partner.PartnerDetailsEdit_co" t-inherit="point_of_sale.PartnerDetailsEdit" t-inherit-mode="extension">
+     <xpath expr="//div[hasclass('partner-details-box')]/t[@t-as='item'][1]"  position="replace">
+         <t t-set="translate" t-value="{'Street' : 'Calle', 'City' : 'Ciudad', 'Email' : 'Correo electrónico', 'Phone' : 'Teléfono', 'Mobile' : 'Celular ', 'Barcode' : 'Código de barras' }"/>
+        <t t-foreach="['Street', 'City', 'Zip', 'Email', 'Phone', 'Mobile', 'Barcode' ]" t-as="item" t-key="item">
+            <div t-attf-class="partner-detail col {{item}}" >
+                <t t-set="label" t-value="item"/>
+                <t t-if="translate[item]">
+                    <t t-set="label" t-value="translate[item]"/>
+                </t>
+                <label class="form-label label" t-attf-for="{{item}}" t-attf-id="{{item}}" ><t t-esc="label" /> </label>
+                <input class="detail form-control" t-attf-id="{{item}}" t-attf-name="{{item}}" t-model="changes[item.toLowerCase()]" t-attf-placeholder="{{label}}" t-att-class="{'border-danger': missingFields.includes(item.toLowerCase())}" />
+            </div>
+        </t>
+     </xpath>
+        <!-- Se usa en caso de que con el i18n falle  -->
+    <xpath expr="//label[@for='vat']" position="replace">
+        <label class="form-label label" for="vat">Numero de identificación</label>
+    </xpath>
+    </t>
+</templates>

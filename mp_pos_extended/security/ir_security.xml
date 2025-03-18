@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="0">
+        <record model="ir.module.category" id="mp_pos_extended.module_category_pos_extended">
+            <field name="name">POS</field>
+            <field name="description">POS</field>
+            <field name="sequence">15</field>
+        </record>
+
+		<record id="group_force_closing_pos_session" model="res.groups">
+			<field name="name">Forzar Cierre POS Sesion</field>
+			<field name="category_id" ref="mp_pos_extended.module_category_pos_extended"/>
+		</record>
+
+	</data>
+</openerp>

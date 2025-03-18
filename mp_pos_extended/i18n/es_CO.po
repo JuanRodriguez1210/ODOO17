@@ -1,0 +1,79 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* mp_pos_extended
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-31 14:18+0000\n"
+"PO-Revision-Date: 2023-03-31 14:18+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: mp_pos_extended
+#: model:ir.model,name:mp_pos_extended.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: mp_pos_extended
+#: model:ir.model.fields,field_description:mp_pos_extended.field_pos_config__display_name
+#: model:ir.model.fields,field_description:mp_pos_extended.field_res_company__display_name
+msgid "Display Name"
+msgstr "Nombre Público"
+
+#. module: mp_pos_extended
+#. openerp-web
+#: code:addons/mp_pos_extended/static/src/js/PaymentScreen.js:0
+#, python-format
+msgid "El valor supera el limite de UVT permitidos para el tipo Ticket"
+msgstr ""
+
+#. module: mp_pos_extended
+#. openerp-web
+#: code:addons/mp_pos_extended/static/src/js/PaymentScreen.js:0
+#, python-format
+msgid "Error al validar Total de UVT"
+msgstr ""
+
+#. module: mp_pos_extended
+#: model:ir.model.fields,field_description:mp_pos_extended.field_pos_config__id
+#: model:ir.model.fields,field_description:mp_pos_extended.field_res_company__id
+msgid "ID"
+msgstr ""
+
+#. module: mp_pos_extended
+#: model:ir.model.fields,field_description:mp_pos_extended.field_pos_config____last_update
+#: model:ir.model.fields,field_description:mp_pos_extended.field_res_company____last_update
+msgid "Last Modified on"
+msgstr "Última Modificación el"
+
+#. module: mp_pos_extended
+#: model_terms:ir.ui.view,arch_db:mp_pos_extended.view_pos_config_form
+msgid "Limit UVT"
+msgstr "Limite de UVT"
+
+#. module: mp_pos_extended
+#: model:ir.model,name:mp_pos_extended.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuración del Punto de Venta"
+
+#. module: mp_pos_extended
+#: model:ir.model.fields,field_description:mp_pos_extended.field_pos_config__qty_limit_uvt
+msgid "Qty limit UVT para Ticket"
+msgstr "Cantidade de UVT"
+
+#. module: mp_pos_extended
+#: model:ir.model.fields,field_description:mp_pos_extended.field_pos_config__value_uvt
+#: model:ir.model.fields,field_description:mp_pos_extended.field_res_company__value_uvt
+msgid "Value UVT"
+msgstr "Valor de la UVT"
+
+#. module: mp_pos_extended
+#: model:ir.model.fields,field_description:mp_pos_extended.field_pos_config__value_limit_uvt_ticket
+msgid "Value limit ticket UVT"
+msgstr "Valor limite en pedidos para ticket"

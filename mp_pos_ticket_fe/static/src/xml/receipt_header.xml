@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="mp_pos_ticket_fe.ReceiptHeader" t-inherit="point_of_sale.ReceiptHeader" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('pos-receipt-contact')]" position="inside">
+        <div>--------------------------------</div>
+            <div t-esc="props.data.date" />    
+            <div t-esc="props.data.name" />        
+            <t t-if="props.data.invoice_info">
+                <div>
+                    Factura No.: <t t-esc="props.data.invoice_info['invoice_number']"/>
+                </div>
+                
+            </t>
+        </xpath>
+        <xpath expr="//div[@t-if='props.data.cashier']" position="replace"> 
+        </xpath>
+        <xpath expr="//div[@t-if='props.data.trackingNumber and !props.data.bigTrackingNumber']" position="replace"> 
+        </xpath>
+    </t>
+</templates>

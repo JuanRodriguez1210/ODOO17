@@ -1,0 +1,57 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_stock_picking_state_closed">
+            <field name="name">view.stock.picking.state.closed</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form" />
+            <field name="type">form</field>
+            <field name="active" eval="True" />
+            <!-- Agrega botón para cambio de estado y cambia visibilidad de botones para que cuando
+            quede como cerrado, sea como hecho -->
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="inside">
+                    <button name="set_to_closed" string="Cerrar" type="object"
+                        invisible="state != 'done'" />
+                </xpath>
+                <xpath expr="//field[@name='state' and @statusbar_visible='draft,assigned,done']"
+                    position="replace">
+                    <field name="state" widget="statusbar"
+                        invisible="picking_type_code != 'incoming'"
+                        statusbar_visible="draft,assigned,done,closed" />
+                </xpath>
+                <xpath
+                    expr="//field[@name='state' and @statusbar_visible='draft,confirmed,assigned,done']"
+                    position="replace">
+                    <field name="state" widget="statusbar"
+                        invisible="picking_type_code == 'incoming'"
+                        statusbar_visible="draft,confirmed,assigned,done,closed" />
+                </xpath>
+                <xpath expr="//button[@name='button_validate' and @class='oe_highlight']"
+                    position="replace">
+                    <button name="button_validate"
+                        invisible="state in ('draft', 'confirmed', 'done', 'cancel','closed')"
+                        string="Validate" type="object" class="oe_highlight"
+                        groups="stock.group_stock_user" data-hotkey="v" />
+                </xpath>
+                <xpath expr="//button[@name='button_validate' and @class='o_btn_validate'] "
+                    position="replace">
+                    <button name="button_validate"
+                        invisible="state in ('waiting', 'assigned', 'done', 'cancel','closed')"
+                        string="Validate" type="object" groups="stock.group_stock_user"
+                        class="o_btn_validate" data-hotkey="v" />
+                </xpath>
+                <button name="%(stock.action_report_delivery)d" position="replace">
+                    <button name="%(stock.action_report_delivery)d" string="Print"
+                        invisible="state not in ('done','closed')" type="action"
+                        groups="base.group_user" data-hotkey="o" />
+                </button>
+                <button name="%(stock.action_report_delivery)d" position="replace">
+                    <button name="%(stock.action_report_delivery)d" string="Return"
+                        invisible="state not in ('done','closed')"
+                        type="action" groups="base.group_user" data-hotkey="k" />
+                </button>
+            </field>
+        </record>
+
+    </data>
+</odoo>

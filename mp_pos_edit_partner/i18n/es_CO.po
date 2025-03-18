@@ -1,0 +1,7 @@
+#. module: point_of_sale
+#. odoo-javascript
+#: code:addons/point_of_sale/static/src/js/models.js:0
+#: code:addons/point_of_sale/static/src/xml/Screens/PartnerListScreen/PartnerDetailsEdit.xml:0
+#, python-format
+msgid "Tax ID"
+msgstr "Numero de identificación "

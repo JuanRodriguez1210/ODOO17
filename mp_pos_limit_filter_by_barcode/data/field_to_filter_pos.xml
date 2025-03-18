@@ -1,0 +1,15 @@
+<odoo>
+    <record id="filter_by_bar_code" model="field.to.filter.pos">
+        <field name="name">Código de barras</field>
+        <field name="code">barcode</field>
+    </record>}
+    <record id="filter_by_name" model="field.to.filter.pos">
+        <field name="name">Nombre</field>
+        <field name="code">name</field>
+    </record>
+    <record id="filter_by_reference" model="field.to.filter.pos">
+        <field name="name">Referencia</field>
+        <field name="code">reference</field>
+    </record>
+
+</odoo>
