@@ -1,0 +1,4 @@
+validators
+xades
+pyOpenSSL
+PyMuPDF
